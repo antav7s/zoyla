@@ -1,4 +1,10 @@
 const mysql = require('mysql2')
+const express = require('express')
+const morgan = require('morgan')
+
+const app = express()
+
+app.use(morgan(":method :url :status :res[content-length] - :response-time ms"))
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
